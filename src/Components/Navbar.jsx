@@ -55,7 +55,7 @@ return (
             <div className="md:hidden">
                 <button
                 onClick={toggleMobileMenu}
-                className="text-gray-300 focus:outline-none"
+                className="text-black focus:outline-none"
                 >
                 {/* Hamburger Icon */}
                     <svg
@@ -99,7 +99,7 @@ return (
                     <Link
                       to={item.path}
                       onClick={() => setIsMobileMenuOpen(false)} // Close the menu on link click
-                      className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                      className="text-black hover:text-gray-500 block px-3 py-2 rounded-md text-base font-medium"
                     >
                       {item.name}
                     </Link>
