@@ -1,12 +1,14 @@
-import { useNavigate } from 'react-router-dom';  // Import the useNavigate hook
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Slider from 'react-slick';
+import AOS from 'aos';  // Import AOS library
+import 'aos/dist/aos.css';  // Import AOS styles
 import banner1 from '../../public/cable-pulling.jpeg';
 import banner2 from '../../public/cable-lying.jpg';
 import banner3 from '../../public/demolition.jpg';
 import banner4 from '../../public/water-proofing.webp';
 import banner5 from '../../public/excavation.webp';
 import banner6 from '../../public/electricity-transmittion.jpg';
-
-import Slider from 'react-slick';
 
 // Import slick carousel CSS
 import "slick-carousel/slick/slick.css";
@@ -53,6 +55,10 @@ const imageList = [
 
 const Hero = () => {
     const navigate = useNavigate();  // Initialize the useNavigate hook
+
+    useEffect(() => {
+        AOS.init({ duration: 800, once: true });  // Initialize AOS
+    }, []);
 
     let settings = {
         dots: true,
@@ -102,21 +108,17 @@ const Hero = () => {
                                 <div className='flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10 px-4'>
                                     <h1
                                         data-aos="zoom-out"
-                                        data-aos-duration="500"
-                                        data-aos-once="true"
                                         className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
                                         {data.title}
                                     </h1>
                                     <p
                                         data-aos="fade-up"
-                                        data-aos-duration="500"
                                         data-aos-delay="100"
                                         className='text-base sm:text-lg'>
                                         {data.discription}
                                     </p>
                                     <div
                                         data-aos="fade-up"
-                                        data-aos-duration="500"
                                         data-aos-delay="300">
                                         <button
                                             onClick={handleButtonClick}  // Add onClick handler
@@ -129,7 +131,6 @@ const Hero = () => {
                                 <div className='order-2 sm:order-1 flex items-center justify-center'>
                                     <div
                                         data-aos="zoom-in"
-                                        data-aos-once="true"
                                         className='relative z-10'>
                                         <img src={data.img} alt=""
                                             className='w-[250px] h-[250px] sm:h-[400px] sm:w-[400px] object-contain mx-auto rounded-2xl' />
