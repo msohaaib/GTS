@@ -1,7 +1,11 @@
+import { useNavigate } from 'react-router-dom';  // Import the useNavigate hook
 import banner1 from '../../public/cable-pulling.jpeg';
 import banner2 from '../../public/cable-lying.jpg';
 import banner3 from '../../public/demolition.jpg';
 import banner4 from '../../public/water-proofing.webp';
+import banner5 from '../../public/excavation.webp';
+import banner6 from '../../public/electricity-transmittion.jpg';
+
 import Slider from 'react-slick';
 
 // Import slick carousel CSS
@@ -33,9 +37,23 @@ const imageList = [
         title: "Water Proofing",
         discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nostrum adipisci tempora ex quae, iusto quod in."
     },
+    {
+        id: 5,
+        img: banner5,
+        title: "Excavation",
+        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nostrum adipisci tempora ex quae, iusto quod in."
+    },
+    {
+        id: 6,
+        img: banner6,
+        title: "Electricity Transmition",
+        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nostrum adipisci tempora ex quae, iusto quod in."
+    },
 ];
 
 const Hero = () => {
+    const navigate = useNavigate();  // Initialize the useNavigate hook
+
     let settings = {
         dots: true,
         arrows: false,
@@ -44,7 +62,7 @@ const Hero = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 2000,
         cssEase: "ease-in-out",
         pauseOnHover: false,
         pauseOnFocus: true,
@@ -66,6 +84,10 @@ const Hero = () => {
                 }
             }
         ]
+    };
+
+    const handleButtonClick = () => {
+        navigate('/services');  // Navigate to the Services page
     };
 
     return (
@@ -97,8 +119,9 @@ const Hero = () => {
                                         data-aos-duration="500"
                                         data-aos-delay="300">
                                         <button
+                                            onClick={handleButtonClick}  // Add onClick handler
                                             className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full my-4'>
-                                            What We Do?
+                                            Explore More
                                         </button>
                                     </div>
                                 </div>
@@ -109,7 +132,7 @@ const Hero = () => {
                                         data-aos-once="true"
                                         className='relative z-10'>
                                         <img src={data.img} alt=""
-                                            className='w-[250px] h-[250px] sm:h-[400px] sm:w-[400px] object-contain mx-auto' />
+                                            className='w-[250px] h-[250px] sm:h-[400px] sm:w-[400px] object-contain mx-auto rounded-2xl' />
                                     </div>
                                 </div>
                             </div>
