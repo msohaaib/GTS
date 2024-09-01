@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
+import logo from "../../public/GTS-Logo.png"
 
 const menu = [
   {
@@ -33,11 +34,15 @@ function App() {
     <Router>
       <div>
         {/* Navbar */}
-        <nav className="bg-gray-800 p-4 shadow-lg">
+        <nav className="bg-gray-800 p-2 shadow-lg">
           <div className="container mx-auto flex justify-between items-center">
             {/* Brand / Logo */}
             <div className="text-white text-xl font-bold">
-              <Link to="/">MyApp</Link>
+              <Link to="/">
+              <img src={logo} alt="GTS-Logo"
+              className="w-14 md:w-20"
+              />
+              </Link>
             </div>
 
             {/* Hamburger icon for mobile */}
@@ -81,7 +86,7 @@ function App() {
 
           {/* Mobile Nav Links */}
           {isMobileMenuOpen && (
-            <div className="md:hidden">
+            <div className="text-center md:hidden">
               <ul className="flex flex-col space-y-1 p-2">
                 {menu.map((item) => (
                   <li key={item.id}>
