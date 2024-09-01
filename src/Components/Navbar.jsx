@@ -7,72 +7,72 @@ import Contact from "./Contact";
 import logo from "../../public/GTS-Logo.png"
 
 const menu = [
-  {
+{
     id: 1,
     name: "Home",
     path: "/",
-  },
-  {
+},
+{
     id: 2,
     name: "Services",
     path: "/services",
-  },
-  {
+},
+{
     id: 3,
     name: "About",
     path: "/about",
-  },
-  {
+},
+{
     id: 3,
     name: "Contact",
     path: "/contact",
-  },
+},
 ];
 
 function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
+const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+};
 
-  return (
+return (
     <Router>
-      <div>
+    <div>
         {/* Navbar */}
-        <nav className="bg-gray-800 p-2 shadow-lg">
-          <div className="container mx-auto flex justify-between items-center">
+        <nav className="bg-gray-200 p-2 shadow-lg">
+            <div className="container mx-auto flex justify-between items-center">
             {/* Brand / Logo */}
-            <div className="text-white text-xl font-bold">
-              <Link to="/">
-              <img src={logo} alt="GTS-Logo"
-              className="w-14 md:w-20"
-              />
-              </Link>
+            <div className="text-black text-xl font-bold">
+                <Link to="/">
+                <img src={logo} alt="GTS-Logo"
+                className="w-14 md:w-20"
+                />
+                </Link>
             </div>
 
             {/* Hamburger icon for mobile */}
             <div className="md:hidden">
-              <button
+                <button
                 onClick={toggleMobileMenu}
                 className="text-gray-300 focus:outline-none"
-              >
-                {/* Hamburger Icon */}
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
+                {/* Hamburger Icon */}
+                    <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M4 6h16M4 12h16m-7 6h7"
-                  ></path>
-                </svg>
-              </button>
+                    ></path>
+                    </svg>
+                </button>
             </div>
 
             {/* Desktop Nav Links */}
@@ -81,7 +81,7 @@ function App() {
                 <li key={item.id}>
                   <Link
                     to={item.path}
-                    className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-black hover:text-gray-500 px-3 py-2 rounded-md text-sm font-medium transition-all ease-in-out"
                   >
                     {item.name}
                   </Link>
