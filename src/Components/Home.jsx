@@ -36,61 +36,80 @@ const imageList = [
 ];
 
 const Hero = () => {
-    let setting = {
-        dots: false,
+    let settings = {
+        dots: true,
         arrows: false,
         infinite: true,
         speed: 800,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 4000,
         cssEase: "ease-in-out",
         pauseOnHover: false,
-        pauseOnFocus: true
+        pauseOnFocus: true,
+        responsive: [
+            {
+                breakpoint: 768,  // Below this width
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 1024,  // Below this width
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            }
+        ]
     };
 
     return (
         <div className='relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex items-center justify-center text-black duration-200'>
             {/* Hero Section */}
-            <div className='w-full max-w-screen-xl mx-auto pb-8 sm:pb-0'>
-                <Slider {...setting}>
+            <div className='w-full max-w-screen-xl mx-auto px-4 pb-8 sm:pb-0'>
+                <Slider {...settings}>
                     {imageList.map((data) => (
-                        <div key={data.id}>
+                        <div key={data.id} className='flex items-center justify-center'>
                             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                                 {/* Text content section */}
-                                <div className='flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10'>
+                                <div className='flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10 px-4'>
                                     <h1
                                         data-aos="zoom-out"
                                         data-aos-duration="500"
                                         data-aos-once="true"
-                                        className='text-5xl sm:text-6xl lg:text-7xl font-bold'>
+                                        className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
                                         {data.title}
                                     </h1>
                                     <p
                                         data-aos="fade-up"
                                         data-aos-duration="500"
                                         data-aos-delay="100"
-                                        className='text-sm'>
+                                        className='text-base sm:text-lg'>
                                         {data.discription}
-                                        <div
-                                            data-aos="fade-up"
-                                            data-aos-duration="500"
-                                            data-aos-delay="300">
-                                            <button
-                                                className='bg-gradient-to-r from-primary to-secondary hover:scale-105 bg-opacity-25 duration-200 text-black py-2 px-4 rounded-full my-4'>
-                                                What We Do?
-                                            </button>
-                                        </div>
                                     </p>
+                                    <div
+                                        data-aos="fade-up"
+                                        data-aos-duration="500"
+                                        data-aos-delay="300">
+                                        <button
+                                            className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full my-4'>
+                                            What We Do?
+                                        </button>
+                                    </div>
                                 </div>
                                 {/* Image section */}
-                                <div className='order-2 sm:order-1'>
+                                <div className='order-2 sm:order-1 flex items-center justify-center'>
                                     <div
                                         data-aos="zoom-in"
                                         data-aos-once="true"
                                         className='relative z-10'>
                                         <img src={data.img} alt=""
-                                            className='w-[300px] h-[300px] sm:h-[450px] sm:w-[450px] sm:scale-125 object-contain mx-auto' />
+                                            className='w-[250px] h-[250px] sm:h-[400px] sm:w-[400px] object-contain mx-auto' />
                                     </div>
                                 </div>
                             </div>
