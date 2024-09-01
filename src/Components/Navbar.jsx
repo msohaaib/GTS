@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
+import Services from "./Services"
 import About from "./About";
 import Contact from "./Contact";
 import logo from "../../public/GTS-Logo.png"
@@ -13,6 +14,11 @@ const menu = [
   },
   {
     id: 2,
+    name: "Services",
+    path: "/services",
+  },
+  {
+    id: 3,
     name: "About",
     path: "/about",
   },
@@ -107,6 +113,7 @@ function App() {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
